@@ -4,8 +4,15 @@ class tomcat7 {
       package { 'wget':
       	      ensure => installed,
       }
+
+      exec { 'apt-get update':
+      	   command => 'apt-get update',
+	   path => ['/usr/bin'],
+      	   
+      }
       package { 'openjdk-7-jdk':
       	      ensure => installed, 
+	      require => Exec['apt-get update'],
       }
 
       package { 'tomcat7':
