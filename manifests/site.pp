@@ -1,1 +1,3 @@
-import 'nodes.pp'
+node default {
+  include 'tomcat7'
+}
