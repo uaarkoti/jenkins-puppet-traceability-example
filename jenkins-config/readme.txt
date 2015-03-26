@@ -1,5 +1,5 @@
 1. create a sample maven Java job that checks out source code and builds it
-2. Deploy job
-   java -jar PATH/TO/jenkins-cli.jar -s http://localhost:8080/ create-job PuppetSample < config.xml
-3. Enable job
-   java -jar PATH/TO/jenkins-cli.jar -s http://localhost:8080/ enable-job PuppetSample 
+2. Create Java job
+		java -jar jenkins-cli.jar -s http://localhost:8081/ create-job PuppetJavaJob < java-job-config.xml
+3. Create Trigger job
+		java -jar jenkins-cli.jar -s http://localhost:8081/ create-job TriggerJobOnPuppetDeploy < trigger-job-config.xml

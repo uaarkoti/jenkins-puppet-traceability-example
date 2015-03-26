@@ -14,7 +14,7 @@
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <url>https://github.com/harpreetsingh/traceability-java-sample.git</url>
+        <url>https://github.com/uaarkoti/traceability-java-sample.git</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
