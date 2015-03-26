@@ -11,7 +11,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "mayflower/ubuntu-precise-puppet"
+  #config.vm.box = "mayflower/ubuntu-precise-puppet"
+  config.vm.box = "puppetlabs/ubuntu-14.04-64-puppet"
+  config.vm.hostname = "jenkins-puppet"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
@@ -48,7 +50,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     puppet.module_path    = "modules"
     puppet.manifest_file  = "site.pp"
     # 10.0.2.2 is the IP address of the host when seen from the NAT-ed guest
-    puppet.options        = ['--reports','http','--reporturl','http://10.0.2.2:8080/puppet/report']
+    puppet.options        = ['--reports','http','--reporturl','http://10.0.2.2:8081/puppet/report']
   end
 
 end

@@ -29,7 +29,7 @@ class tomcat7 {
 	      	      Service['tomcat7'], 
 		      Package['wget']
 	      ],
-	      command => 'wget http://10.0.2.2:8080/job/PuppetJavaSample/lastSuccessfulBuild/artifact/target/traceability.war -P /tmp/',
+	      command => 'wget http://10.0.2.2:8081/job/PuppetJavaJob/lastSuccessfulBuild/artifact/target/traceability.war -P /tmp/',
 	      path => ['/usr/bin'],
       }
 
