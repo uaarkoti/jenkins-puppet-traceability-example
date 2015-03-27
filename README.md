@@ -10,23 +10,22 @@ Refer [this blog](https://developer.cloudbees.com/bin/view/Main/PuppetChefExampl
 ```
 git clone https://github.com/uaarkoti/jenkins-puppet-traceability-example.git
 ```
-- Install [Jenkins](https://updates.jenkins-ci.org/latest/jenkins.war)
+- Install [Jenkins](https://updates.jenkins-ci.org/latest/jenkins.war) and run it on port 8081. The port number is important as the rest of this configuration assumes this port.
 ```
 java -jar jenkins.war --httpPort=8081
 ```
-- Import jobs
-  - Download jenkins-cli.jar
+- Download jenkins-cli.jar 
 ```
 wget --no-check-certificate http://localhost:8081/jnlpJars/jenkins-cli.jar
 ```
-  - Import jobs
+- Import jobs using Jenkins CLI
 ```
-java -jar jenkins-cli.jar -s http://localhost:8081/ create-job PuppetJavaJob < java-job-config.xml
-java -jar jenkins-cli.jar -s http://localhost:8081/ create-job TriggerJobOnPuppetDeploy < trigger-job-config.xml
+java -jar /PATH/TO/jenkins-cli.jar -s http://localhost:8081/ create-job PuppetJavaJob < java-job-config.xml
+java -jar /PATH/TO/jenkins-cli.jar -s http://localhost:8081/ create-job TriggerJobOnPuppetDeploy < trigger-job-config.xml
 ```
-  - Build PuppetJavaJob by clicking "Build Now"
+- Build PuppetJavaJob by clicking "Build Now"
 - Start vagrant
 ```
 vagrant up
 ```
-- [View traceability](http://localhost:8081/job/PuppetJavaJob/lastSuccessfulBuild/artifact/target/traceability.war/*fingerprint*/)
+- [View traceability](http://localhost:8081/job/PuppetJavaJob/lastSuccessfulBuild/artifact/target/traceability.war/*fingerprint*/) in action
